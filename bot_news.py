@@ -27,7 +27,7 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def get_game_news(message):
         query = message.text
-        uz_news = GNews(language='uz', country='UZ', max_results=3)
+    uz_news = GNews(language='uz', country='UZ', max_results=3)
     news_list = uz_news.get_news(query)
 
     if news_list:
