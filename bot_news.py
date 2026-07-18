@@ -29,16 +29,17 @@ def get_game_news(message):
     query = message.text
     bot.reply_to(message, f"'{query}' bo'yicha yangiliklar izlanmoqda...")
     
-    uz_news = GNews(language='uz', country='UZ', max_results=2)
-    en_news = GNews(language='en', country='US', max_results=2)
+       uz_news = GNews(language='uz', country='UZ', max_results=3)
+    news_list = uz_news.get_news(query)
     
-    bot.send_message(message.chat.id, "🇺🇿 O'zbekcha yangiliklar:")
-    for item in uz_news.get_news(query):
-        bot.send_message(message.chat.id, f"{item['title']}\n{item['url']}")
-        
-    bot.send_message(message.chat.id, "🇬🇧 English news:")
-    for item in en_news.get_news(query):
-        bot.send_message(message.chat.id, f"{item['title']}\n{item['url']}")
+    if news_list:
+        for item in news_list:
+                         msg = f"📰 {item['title']}\n\n📝 {item['description']}"
+                        bot.send_message(message.chat.id, msg)
 
+            bot.send_message(message.chat.id, msg)
+    else:
+        bot.send_message(message.chat.id, "Kechirasiz, bu mavzuda o'zbekcha yangilik topa olmadim.")
+        
 bot.polling()
   
