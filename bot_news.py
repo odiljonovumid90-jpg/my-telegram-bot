@@ -27,15 +27,14 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def get_game_news(message):
         query = message.text
-    uz_news = GNews(language='uz', country='UZ', max_results=3)
+        uz_news = GNews(language='uz', country='UZ', max_results=3)
     news_list = uz_news.get_news(query)
-    
+
     if news_list:
-                for item in news_list:
-                               msg = f"📰 {item['title']}\n\n📝 {item['description']}"
+        for item in news_list:
+            msg = f"📰 {item['title']}\n\n📝 {item['description']}"
             bot.send_message(message.chat.id, msg)
-                else:
-            bot.send_message(message.chat.id, "Kechirasiz, yangilik topa olmadim.")
-            
-bot.polling()
+    else:
+        bot.send_message(message.chat.id, "Kechirasiz, yangilik topa olmadim.")
+        
   
