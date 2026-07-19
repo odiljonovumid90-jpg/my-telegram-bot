@@ -1,3 +1,4 @@
-pyTelegramBotAPI
-flask
+aiogram==3.15.0
+yt-dlp
+
 
