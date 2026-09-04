@@ -2,7 +2,7 @@ import telebot
 from google import genai
 
 # Sizning shaxsiy ma'lumotlaringiz joylashtirildi
-BOT_TOKEN = "8653913792:AAH6vAylg3viYoUIzKSw9gfoLbHtBoxfgdw"
+BOT_TOKEN = "8653913792:AAH6vAylg3viYoUIzKSW9gfoLbHtBoxfgdw"
 AI_KEY = "AQ.Ab8RN6KuL8WgkT2b44gxgzOPff0LbnrIcjRBqawN-aJfCaVtxg"
 
 bot = telebot.TeleBot(BOT_TOKEN)
