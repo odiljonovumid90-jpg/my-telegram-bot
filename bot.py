@@ -1,6 +1,7 @@
 import telebot
 import requests
 
+# Tokenlar 100% aniq joylashtirildi
 BOT_TOKEN = "8653913792:AAH6vAylg3viYoUIzKSw9gfoLbHtBoxfgdw"
 AI_KEY = "AQ.Ab8RN6LcyoAOzmkLBFKiOVuOKltCu1A9Axs4Kw0fT-h6T1spVA"
 
@@ -16,7 +17,7 @@ def javob_ber(message):
     
     url = f"https://googleapis.com{AI_KEY}"
     headers = {"Content-Type": "application/json"}
-    payload = {"contents": [{"parts": [{"text": float_prompt if 'float_prompt' in locals() else fizik_prompt}]}]}
+    payload = {"contents": [{"parts": [{"text": fizik_prompt}]}]}
     
     try:
         response = requests.post(url, json=payload, headers=headers)
